@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ak1">
+        <ul><input type="text" id="ak1">
+            <li><button onclick="show()">home</button></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">help</a></li>
+            
+        </ul>
+    </div>
+    <div id="res"></div>
+    
+</body>
+<script>
+    function show()
+ {
+const a=parseInt(document.getElementById("ak1").value);
+document.getElementById("res").innerHTML=a;
+ }
+</script>
+</html>
