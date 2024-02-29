@@ -5,7 +5,7 @@ import {useState}from'react'
  import fog from "./images/fog.jpg"
  import haze from "./images/haze.svg"
  import rain from "./images/rain.png"
- import clear from "./images/clear.png"
+ import clearimage from "./images/clear.png"
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
  import'./style.css'
@@ -40,7 +40,13 @@ import {useState}from'react'
     
     })
   }
+  
 }
+const originalClear=(e)=>{
+  setCity("")
+ setInfo("")
+  }
+
 return(
   <center>
     
@@ -50,10 +56,11 @@ return(
    <div className="search-container">
   <div id="search">Enter City Name: <input type="text" value={city} className="search-box" placeholder="Search..." onChange={(e)=>updatecity(e)} ></input>
  
-  <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} /></div></div>
+  <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} onClick={(e)=>findreport(e)} /></div></div>
     
  </div>
  <input type="button"  className="find_report" onClick={(e)=>findreport(e)} value="WeatherReport"></input>
+ <button  className="clear" onClick={(e)=>originalClear(e)}>Clear</button>
  {
     (info!==null&& info.cod===200 &&
     <table>
@@ -88,7 +95,7 @@ return(
  ||(info.weather[0].main==="Haze"&&<img id="clouds"src={haze} alt="path not found"></img>)
   
  ||(info.weather[0].main==="Rain"&&<img id="clouds"src={rain} alt="path not found"></img>)
- ||(info.weather[0].main==="Clear"&&<img id="clouds"src={clear} alt="path not found"></img>))}
+ ||(info.weather[0].main==="Clear"&&<img id="clouds"src={clearimage} alt="path not found"></img>))}
   { info!==null&& info.cod===200 && <div className="weather">{info.weather[0].main}</div>}
   { info!==null&& info.cod===200 && 
   <div className="all">
